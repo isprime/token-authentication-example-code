@@ -1,6 +1,7 @@
 Token Authentication Example Code
 ===
-```> curl -I 'http://token-authentication-example-code.isprime.com/test-720p.mp4'
+```
+> curl -I 'http://token-authentication-example-code.isprime.com/test-720p.mp4'
 HTTP/1.1 403 Forbidden
 [snip]
 > php md5-authentication.php http://token-authentication-example-code.isprime.com/test-720p.mp4
