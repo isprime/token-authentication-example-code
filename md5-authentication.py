@@ -32,5 +32,4 @@ expires = int(time.time()) + (60 * 60 * 12)
 password = 'xa5aileeph6nah5ooQu'
 
 for url in sys.argv[1:]:
-    print sign_url(url, password)
     print sign_url(url, password, expires)
