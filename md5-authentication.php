@@ -24,6 +24,5 @@ function sign_url($url, $password, $expires = false) {
 $expires = time() + (60*60*12);
 $password = "xa5aileeph6nah5ooQu";
 foreach(array_slice($_SERVER['argv'], 1) as $url) {
-    printf("%s\n", sign_url($url, $password));
     printf("%s\n", sign_url($url, $password, $expires));
 }
