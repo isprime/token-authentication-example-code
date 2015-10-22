@@ -8,18 +8,18 @@ function sign_url($url, $password, $expires = false) {
     if (isset($parts['query'])) {
         $sign = sprintf("%s?%s&expires=%s&pass=%s",
             $parts['path'], $parts['query'], $expires, $password);
-        $new = sprintf("%s://%s%s?expires=%s&token=%%s",
+        $new = sprintf("%s://%s%s?expires=%s&token=",
             $parts['scheme'], $parts['host'], $parts['path'],
             $parts['query'], $expires);
     } else {
         $sign = sprintf("%s?expires=%s&pass=%s",
             $parts['path'], $expires, $password);
-        $new = sprintf("%s://%s%s?expires=%s&token=%%s",
+        $new = sprintf("%s://%s%s?expires=%s&token=",
             $parts['scheme'], $parts['host'], $parts['path'],
             $expires);
     }
     $token = md5($sign);
-    return sprintf($new, $token);
+    return sprintf("%s%s", $new, $token);
 }
 $expires = time() + (60*60*12);
 $password = "xa5aileeph6nah5ooQu";

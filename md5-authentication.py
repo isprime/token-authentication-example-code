@@ -16,16 +16,16 @@ def sign_url(url, password, expires=None):
     if parts.query:
         sign = "%s?%s&expires=%s&pass=%s" % (
             parts.path, parts.query, expires, password)
-        new = "%s://%s%s?%s&expires=%s&token=%%s" % (
+        new = "%s://%s%s?%s&expires=%s&token=" % (
             parts.scheme, parts.netloc, parts.path, parts.query, expires)
     else:
         sign = "%s?expires=%s&pass=%s" % (parts.path, expires, password)
-        new = "%s://%s%s?expires=%s&token=%%s" % (
+        new = "%s://%s%s?expires=%s&token=" % (
             parts.scheme, parts.netloc, parts.path, expires)
     md5instance = hashlib.md5()
     md5instance.update(sign.encode("ascii"))
     token = md5instance.hexdigest()
-    return new % token
+    return "%s%s" % (new, token)
 
 
 expires = int(time.time()) + (60 * 60 * 12)
