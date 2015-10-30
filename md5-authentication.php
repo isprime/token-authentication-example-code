@@ -8,7 +8,7 @@ function sign_url($url, $password, $expires = false) {
     if (isset($parts['query'])) {
         $sign = sprintf("%s?%s&expires=%s&pass=%s",
             $parts['path'], $parts['query'], $expires, $password);
-        $new = sprintf("%s://%s%s?expires=%s&token=",
+        $new = sprintf("%s://%s%s?%s&expires=%s&token=",
             $parts['scheme'], $parts['host'], $parts['path'],
             $parts['query'], $expires);
     } else {
