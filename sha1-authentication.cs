@@ -77,7 +77,7 @@ namespace CdnHash
 
       static void Main(string[] args)
       {
-         string hashed_url = compute_cdn_hash("http://domain.com/path/to/image.jpg", "secretkey");
+         string hashed_url = compute_cdn_hash("http://cdn.sheshaft.com/contents/videos/13000/13316/13316.mp4?a=1", "6UvVyrHxa6");
          Console.WriteLine("{0}", hashed_url);
       }
    }
